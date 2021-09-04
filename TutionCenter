@@ -1,0 +1,110 @@
+import java.util.Scanner;
+public class TutionCenter{
+	public static void main(String[] args) {
+		
+		Person[] database = new Person[100];
+		int i=0;
+		String onemore = null;
+		
+		System.out.println("Naveen's Personal Tution Database");
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Lets Start : (Y / N) :");
+		String start = sc.next();
+		
+		if(start.equalsIgnoreCase("y")) {
+			do {
+				System.out.println("Enter Student Id : ");
+				int id = sc.nextInt();		
+				System.out.println("Enter Student Name : ");
+				String name = sc.next();
+				System.out.println("Enter Student Gender (Male / Female) : ");
+				String gender = sc.next();
+				System.out.println("Enter Student Mobile Number: ");
+				String phno = sc.next();
+				System.out.println("Enter Student Address: ");
+				String address = sc.next();
+				System.out.println("Enter Student studyStandard class: ");
+				String classStudying = sc.next();
+				
+				Person p = new Person();
+				p.setPersonId(id);
+				p.setPersonName(name);
+				p.setGender(gender);
+				p.setPersonMobileNumber(phno);
+				p.setPersonAddress(address);
+				p.setStudyStandard(classStudying);
+				
+				database[i] = p;
+				i++;
+				
+				System.out.println("Do u want to add one More Student ( Y / N) :");
+				onemore = sc.next();
+				
+			}while(onemore.equalsIgnoreCase("y"));
+			
+			System.out.println("List Of Data Here");
+			System.out.println();
+			System.out.println("ID NAME GENDER MOBILE ADDRESS CLASS");
+
+			for(int j=0;j<i;j++) {
+				System.out.println(database[j].getPersonId()+" "+database[j].getPersonName()+" "
+			+database[j].getGender()+" "+database[j].getPersonMobileNumber()+" "
+						+database[j].getPersonAddress()+" "+database[j].getStudyStandard());
+			}
+		}else {
+			System.out.println("Thanks For Using This ");
+		}
+	}
+
+}
+class Person {
+	
+	private int personId;
+	private String personName;
+	private String personMobileNumber;
+	private String personAddress;
+	private String studyStandard;
+	private String gender;
+	
+	public int getPersonId() {
+		return personId;
+	}
+	public void setPersonId(int personId) {
+		this.personId = personId;
+	}
+	public String getPersonName() {
+		return personName;
+	}
+	public void setPersonName(String personName) {
+		this.personName = personName;
+	}
+	public String getPersonMobileNumber() {
+		return personMobileNumber;
+	}
+	public void setPersonMobileNumber(String personMobileNumber) {
+		this.personMobileNumber = personMobileNumber;
+	}
+	public String getPersonAddress() {
+		return personAddress;
+	}
+	public void setPersonAddress(String personAddress) {
+		this.personAddress = personAddress;
+	}
+	public String getStudyStandard() {
+		return studyStandard;
+	}
+	public void setStudyStandard(String studyStandard) {
+		this.studyStandard = studyStandard;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	
+	
+
+}
